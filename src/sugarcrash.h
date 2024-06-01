@@ -21,11 +21,7 @@ VOID Sugar_BlueScreen(NTSTATUS ntErrorStatus);
 
 VOID Sugar_MinimizeAll(VOID);
 
-HGLOBAL Sugar_GetProcessResource(LPCTSTR lpName, LPCTSTR lpType);
-
 DWORD Sugar_Random(DWORD dwMin, DWORD dwMax);
-
-BOOL Sugar_PlayWaveResource(LPCTSTR lpResName);
 
 /////////////////////////////////////////////////////////////////////////
 // screen
