@@ -36,10 +36,11 @@ INT Sugar_Crash(VOID)
 {
     Sugar_MinimizeAll();
 
-    Sleep(1000); /* 1 секунда */
+    Sleep(1000);
 
     CreateThread(NULL, 0, &UpdateScreenThread, NULL, 0, NULL);
-    Sugar_PlayWaveResource(TEXT("SND_SUGARCRASH"));
+
+    Sleep(10000); // Wait for...
 
 #if !defined(DEBUG)
     Sugar_BlueScreen(STATUS_ASSERTION_FAILURE);
