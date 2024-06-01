@@ -9,7 +9,6 @@ VOID FILTER HueRotate(RGBQUAD *prgbPixel, LPVOID lpAngle)
 
     ConvertRGBtoHSV(prgbPixel, &hsv);
 
-    /* Изменение оттенка */
     hsv.fHue += (lpAngle != NULL) ? *((PFLOAT) lpAngle) : 0;
 
     if (hsv.fHue > 360) hsv.fHue -= 360;

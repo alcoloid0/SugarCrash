@@ -21,7 +21,7 @@ VOID ConvertRGBtoHSV(const RGBQUAD *rgb, HSVQUAD *hsv)
     fCMin = min(min(fR, fG), fB);
     fDelta = fCMax - fCMin;
 
-    if (fDelta == 0) /* Вычисляем тон (Hue) */
+    if (fDelta == 0) /* Hue */
         hsv->fHue = 0;
     else if (fCMax == fR)
         hsv->fHue = 60 * (fmod(((fG - fB) / fDelta), 6));
@@ -30,12 +30,12 @@ VOID ConvertRGBtoHSV(const RGBQUAD *rgb, HSVQUAD *hsv)
     else if (fCMax == fB)
         hsv->fHue = 60 * (((fR - fG) / fDelta) + 4);
 
-    if (fCMax == 0) /* Вычисляем насыщенность (Saturation) */
+    if (fCMax == 0) /* Saturation */
         hsv->fSaturation = 0;
     else
         hsv->fSaturation = fDelta / fCMax;
 
-    hsv->fValue = fCMax; /* Значение (Value) */
+    hsv->fValue = fCMax; /* Value */
     
     hsv->fReserved = (FLOAT) rgb->rgbReserved;
 }

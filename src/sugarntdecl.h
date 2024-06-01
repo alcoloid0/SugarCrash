@@ -6,7 +6,7 @@
 #define SE_SHUTDOWN_PRIVILEGE 19L
 
 /********************************************************
- * Подробнее:                                           *
+ * More information:                                    *
  * http://undocumented.ntinternals.net/index.html       *
  ********************************************************/
 
