@@ -1,0 +1,5 @@
+name: SugarCrash
+version: ${PROJECT_VERSION}
+main: omg.alcoloid.sugarcrash.SugarCrash
+author: alcoloid
+api-version: 1.13
