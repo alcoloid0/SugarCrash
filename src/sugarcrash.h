@@ -4,8 +4,9 @@
 #include <Windows.h>
 #include <tchar.h>
 
-#define THREAD WINAPI
+#define THREAD  WINAPI
 #define FILTER
+#define M_PI    3.14159265358f  
 
 /////////////////////////////////////////////////////////////////////////
 // main
@@ -27,9 +28,17 @@ DWORD Sugar_Random(DWORD dwMin, DWORD dwMax);
 // screen
 /////////////////////////////////////////////////////////////////////////
 
-typedef VOID(FILTER SGRPIXELFILTERPROC)(RGBQUAD *prgbPixel, LPVOID lpParam);
+typedef VOID(FILTER SGRPIXELFILTERPROC)(
+    RGBQUAD        *prgbPixels,
+    UINT            uWidth,
+    UINT            uHeight,
+    LPVOID          lpParam);
 
-VOID FILTER HueRotate(RGBQUAD *prgbPixel, LPVOID lpAngle);
+VOID FILTER HueRotate(
+    RGBQUAD        *prgbPixels,
+    UINT            uWidth,
+    UINT            uHeight,
+    LPVOID          lpAngle);
 
 VOID Sugar_ScreenPixelFilter(SGRPIXELFILTERPROC filter, LPVOID lpParam);
 
@@ -38,20 +47,5 @@ VOID Sugar_ScreenDrawText(const PPOINT pPoint, LPCTSTR lpText);
 VOID Sugar_ScreenGetRandomPoint(PPOINT pPoint);
 
 DWORD Sugar_ScreenGetFrequency(VOID);
-
-/////////////////////////////////////////////////////////////////////////
-// HSV
-/////////////////////////////////////////////////////////////////////////
-
-typedef struct _HSVQUAD {
-    FLOAT fHue;
-    FLOAT fSaturation;
-    FLOAT fValue;
-    FLOAT fReserved;
-} HSVQUAD;
-
-VOID ConvertRGBtoHSV(const RGBQUAD *rgb, HSVQUAD *hsv);
-
-VOID ConvertHSVtoRGB(const HSVQUAD *hsv, RGBQUAD *rgb);
 
 #endif /* _SUGAR_CRASH */

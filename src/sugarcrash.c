@@ -1,6 +1,6 @@
 #include "sugarcrash.h"
 
-#define ROTATE_ANGLE        16.0f
+#define ROTATE_ANGLE        ((M_PI / 180.0f) * 15.0f)
 
 static LPCTSTR g_alpTextArray[] = {
     TEXT("FEEL GOOD"),
